@@ -43,11 +43,11 @@ const LoginScreen = () => {
 
   return (
     <FormContainer>
-      <h1>Sign In</h1>
+      <h1>ورود</h1>
 
       <Form onSubmit={submitHandler}>
         <Form.Group className='my-2' controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label>آدرس ایمیل</Form.Label>
           <Form.Control
             type='email'
             placeholder='Enter email'
@@ -57,7 +57,7 @@ const LoginScreen = () => {
         </Form.Group>
 
         <Form.Group className='my-2' controlId='password'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label>رمز عبور</Form.Label>
           <Form.Control
             type='password'
             placeholder='Enter password'
@@ -67,7 +67,7 @@ const LoginScreen = () => {
         </Form.Group>
 
         <Button disabled={isLoading} type='submit' variant='primary'>
-          Sign In
+          ورود
         </Button>
 
         {isLoading && <Loader />}
@@ -75,9 +75,9 @@ const LoginScreen = () => {
 
       <Row className='py-3'>
         <Col>
-          New Customer?{' '}
+          حساب کاربری ندارید؟{' '}
           <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-            Register
+            ثبت نام
           </Link>
         </Col>
       </Row>

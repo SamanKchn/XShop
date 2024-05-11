@@ -55,7 +55,7 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={3}>
-        <h2>User Profile</h2>
+        <h2>حساب کاربری</h2>
 
         <Form onSubmit={submitHandler}>
           <Form.Group className='my-2' controlId='name'>
@@ -69,7 +69,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group className='my-2' controlId='email'>
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label>آدرس ایمیل</Form.Label>
             <Form.Control
               type='email'
               placeholder='Enter email'
@@ -79,7 +79,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group className='my-2' controlId='password'>
-            <Form.Label>Password</Form.Label>
+            <Form.Label>رمز عبور</Form.Label>
             <Form.Control
               type='password'
               placeholder='Enter password'
@@ -89,7 +89,7 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Form.Group className='my-2' controlId='confirmPassword'>
-            <Form.Label>Confirm Password</Form.Label>
+            <Form.Label>تکرار رمز عبور</Form.Label>
             <Form.Control
               type='password'
               placeholder='Confirm password'
@@ -99,13 +99,13 @@ const ProfileScreen = () => {
           </Form.Group>
 
           <Button type='submit' variant='primary'>
-            Update
+            بروزرسانی
           </Button>
           {loadingUpdateProfile && <Loader />}
         </Form>
       </Col>
       <Col md={9}>
-        <h2>My Orders</h2>
+        <h2>سفارش های من</h2>
         {isLoading ? (
           <Loader />
         ) : error ? (
@@ -116,11 +116,11 @@ const ProfileScreen = () => {
           <Table striped hover responsive className='table-sm'>
             <thead>
               <tr>
-                <th>ID</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
+                <th>شناسه</th>
+                <th>تاریخ</th>
+                <th>مجموع</th>
+                <th>پرداخت شده</th>
+                <th>ارسال شده</th>
                 <th></th>
               </tr>
             </thead>
@@ -147,7 +147,7 @@ const ProfileScreen = () => {
                   <td>
                     <LinkContainer to={`/order/${order._id}`}>
                       <Button className='btn-sm' variant='light'>
-                        Details
+                        جزئیات
                       </Button>
                     </LinkContainer>
                   </td>

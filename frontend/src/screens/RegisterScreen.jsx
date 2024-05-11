@@ -50,10 +50,10 @@ const RegisterScreen = () => {
 
   return (
     <FormContainer>
-      <h1>Register</h1>
+      <h1>ثبت نام</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group className='my-2' controlId='name'>
-          <Form.Label>Name</Form.Label>
+          <Form.Label>نام و نام خانوادگی</Form.Label>
           <Form.Control
             type='name'
             placeholder='Enter name'
@@ -63,7 +63,7 @@ const RegisterScreen = () => {
         </Form.Group>
 
         <Form.Group className='my-2' controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label>آدرس ایمیل</Form.Label>
           <Form.Control
             type='email'
             placeholder='Enter email'
@@ -73,7 +73,7 @@ const RegisterScreen = () => {
         </Form.Group>
 
         <Form.Group className='my-2' controlId='password'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label>رمز عبور</Form.Label>
           <Form.Control
             type='password'
             placeholder='Enter password'
@@ -82,7 +82,7 @@ const RegisterScreen = () => {
           ></Form.Control>
         </Form.Group>
         <Form.Group className='my-2' controlId='confirmPassword'>
-          <Form.Label>Confirm Password</Form.Label>
+          <Form.Label>تکرار رمز عبور</Form.Label>
           <Form.Control
             type='password'
             placeholder='Confirm password'
@@ -92,7 +92,7 @@ const RegisterScreen = () => {
         </Form.Group>
 
         <Button disabled={isLoading} type='submit' variant='primary'>
-          Register
+          ثبت نام
         </Button>
 
         {isLoading && <Loader />}
@@ -100,9 +100,9 @@ const RegisterScreen = () => {
 
       <Row className='py-3'>
         <Col>
-          Already have an account?{' '}
+          ؟حساب کاربری دارید{' '}
           <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
-            Login
+            وارد شوید
           </Link>
         </Col>
       </Row>
