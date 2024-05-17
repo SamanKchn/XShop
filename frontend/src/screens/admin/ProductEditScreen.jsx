@@ -50,7 +50,7 @@ const ProductEditScreen = () => {
         description,
         countInStock,
       }).unwrap(); // NOTE: here we need to unwrap the Promise to catch any rejection in our catch block
-      toast.success('Product updated');
+      toast.success('محصول بروزرسانی شد');
       refetch();
       navigate('/admin/productlist');
     } catch (err) {
@@ -85,10 +85,10 @@ const ProductEditScreen = () => {
   return (
     <>
       <Link to='/admin/productlist' className='btn btn-light my-3'>
-        Go Back
+        بازگشت
       </Link>
       <FormContainer>
-        <h1>Edit Product</h1>
+        <h1>ویرایش محصول</h1>
         {loadingUpdate && <Loader />}
         {isLoading ? (
           <Loader />
@@ -97,35 +97,35 @@ const ProductEditScreen = () => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId='name'>
-              <Form.Label>Name</Form.Label>
+              <Form.Label>عنوان</Form.Label>
               <Form.Control
                 type='name'
-                placeholder='Enter name'
+                placeholder='عنوان را وارد کنید'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='price'>
-              <Form.Label>Price</Form.Label>
+              <Form.Label>مبلغ</Form.Label>
               <Form.Control
                 type='number'
-                placeholder='Enter price'
+                placeholder='مبلغ را وارد کنید'
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='image'>
-              <Form.Label>Image</Form.Label>
+              <Form.Label>تصویر</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Enter image url'
+                placeholder='آدرس عکس را وارد کنید'
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
               <Form.Control
-                label='Choose File'
+                label='انتخاب فایل'
                 onChange={uploadFileHandler}
                 type='file'
               ></Form.Control>
@@ -133,40 +133,40 @@ const ProductEditScreen = () => {
             </Form.Group>
 
             <Form.Group controlId='brand'>
-              <Form.Label>Brand</Form.Label>
+              <Form.Label>برند</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Enter brand'
+                placeholder='برند را وارد کنید'
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='countInStock'>
-              <Form.Label>Count In Stock</Form.Label>
+              <Form.Label>تعداد در انبار</Form.Label>
               <Form.Control
                 type='number'
-                placeholder='Enter countInStock'
+                placeholder='تعداد در انبار را وارد کنید'
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='category'>
-              <Form.Label>Category</Form.Label>
+              <Form.Label>دسته</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Enter category'
+                placeholder='دسته را وارد کنید'
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId='description'>
-              <Form.Label>Description</Form.Label>
+              <Form.Label>توضیحات</Form.Label>
               <Form.Control
                 type='text'
-                placeholder='Enter description'
+                placeholder='توضیحات را وارد کنید'
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               ></Form.Control>
@@ -177,7 +177,7 @@ const ProductEditScreen = () => {
               variant='primary'
               style={{ marginTop: '1rem' }}
             >
-              Update
+              اعمال
             </Button>
           </Form>
         )}

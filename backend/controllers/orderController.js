@@ -12,7 +12,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 
   if (orderItems && orderItems.length === 0) {
     res.status(400);
-    throw new Error('No order items');
+    throw new Error('هیچ سفارشی وجود ندارد');
   } else {
     // NOTE: here we must assume that the prices from our client are incorrect.
     // We must only trust the price of the item as it exists in
@@ -79,7 +79,7 @@ const getOrderById = asyncHandler(async (req, res) => {
     res.json(order);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error('سفارش یافت نشد');
   }
 });
 
@@ -90,18 +90,18 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   // NOTE: here we need to verify the payment was made to PayPal before marking
   // the order as paid
   const { verified, value } = await verifyPayPalPayment(req.body.id);
-  if (!verified) throw new Error('Payment not verified');
+  if (!verified) throw new Error('پرداخت تایید نشد');
 
   // check if this transaction has been used before
   const isNewTransaction = await checkIfNewTransaction(Order, req.body.id);
-  if (!isNewTransaction) throw new Error('Transaction has been used before');
+  if (!isNewTransaction) throw new Error('تراکنش قبلا استفاده شده است');
 
   const order = await Order.findById(req.params.id);
 
   if (order) {
     // check the correct amount was paid
     const paidCorrectAmount = order.totalPrice.toString() === value;
-    if (!paidCorrectAmount) throw new Error('Incorrect amount paid');
+    if (!paidCorrectAmount) throw new Error('مقدار نادرستی پرداخته شد');
 
     order.isPaid = true;
     order.paidAt = Date.now();
@@ -117,7 +117,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     res.json(updatedOrder);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error('سفارش یافت نشد');
   }
 });
 
@@ -136,7 +136,7 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
     res.json(updatedOrder);
   } else {
     res.status(404);
-    throw new Error('Order not found');
+    throw new Error('سفارش یافت نشد');
   }
 });
 

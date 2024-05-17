@@ -35,7 +35,7 @@ const ShippingScreen = () => {
           <Form.Label>آدرس</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Enter address'
+            placeholder='آدرس خود را وارد کنید'
             value={address}
             required
             onChange={(e) => setAddress(e.target.value)}
@@ -46,7 +46,7 @@ const ShippingScreen = () => {
           <Form.Label>شهر</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Enter city'
+            placeholder='شهر خود را وارد کنید'
             value={city}
             required
             onChange={(e) => setCity(e.target.value)}
@@ -57,7 +57,7 @@ const ShippingScreen = () => {
           <Form.Label>کد پستی</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Enter postal code'
+            placeholder='کدپستی خود را وارد کنید'
             value={postalCode}
             required
             onChange={(e) => setPostalCode(e.target.value)}
@@ -68,7 +68,7 @@ const ShippingScreen = () => {
           <Form.Label>کشور</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Enter country'
+            placeholder='کشور خود را وارد کنید'
             value={country}
             required
             onChange={(e) => setCountry(e.target.value)}

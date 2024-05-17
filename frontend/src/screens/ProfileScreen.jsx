@@ -33,7 +33,7 @@ const ProfileScreen = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
+      toast.error('رمز عبور تطابق ندارد');
     } else {
       try {
         const res = await updateProfile({
@@ -45,7 +45,7 @@ const ProfileScreen = () => {
           password,
         }).unwrap();
         dispatch(setCredentials({ ...res }));
-        toast.success('Profile updated successfully');
+        toast.success('حساب کاربری بروزرسانی شد');
       } catch (err) {
         toast.error(err?.data?.message || err.error);
       }
@@ -59,10 +59,10 @@ const ProfileScreen = () => {
 
         <Form onSubmit={submitHandler}>
           <Form.Group className='my-2' controlId='name'>
-            <Form.Label>Name</Form.Label>
+            <Form.Label>نام و نام خانوادگی</Form.Label>
             <Form.Control
               type='text'
-              placeholder='Enter name'
+              placeholder='نام و نام خانوادگی را وارد کنید'
               value={name}
               onChange={(e) => setName(e.target.value)}
             ></Form.Control>
@@ -72,7 +72,7 @@ const ProfileScreen = () => {
             <Form.Label>آدرس ایمیل</Form.Label>
             <Form.Control
               type='email'
-              placeholder='Enter email'
+              placeholder='ایمیل را وارد کنید'
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             ></Form.Control>
@@ -82,7 +82,7 @@ const ProfileScreen = () => {
             <Form.Label>رمز عبور</Form.Label>
             <Form.Control
               type='password'
-              placeholder='Enter password'
+              placeholder='رمز عبور را وارد کنید'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></Form.Control>
@@ -92,7 +92,7 @@ const ProfileScreen = () => {
             <Form.Label>تکرار رمز عبور</Form.Label>
             <Form.Control
               type='password'
-              placeholder='Confirm password'
+              placeholder='رمز عبور را دوباره وارد کنید'
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             ></Form.Control>

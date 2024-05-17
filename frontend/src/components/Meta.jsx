@@ -11,7 +11,7 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: 'به XShop خوش آمدید',
+  title: 'XShop',
   description: 'ارزان ترین قیمت را با ما تجربه کنید',
   keywords: 'انواع لوازم الکترونیکی',
 };

@@ -39,7 +39,7 @@ const getProductById = asyncHandler(async (req, res) => {
     // NOTE: this will run if a valid ObjectId but no product was found
     // i.e. product may be null
     res.status(404);
-    throw new Error('Product not found');
+    throw new Error('محصول یافت نشد');
   }
 });
 
@@ -48,15 +48,15 @@ const getProductById = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
-    name: 'Sample name',
+    name: 'عنوان نمونه',
     price: 0,
     user: req.user._id,
     image: '/images/sample.jpg',
-    brand: 'Sample brand',
-    category: 'Sample category',
+    brand: 'برند نمونه',
+    category: 'نوع نمونه',
     countInStock: 0,
     numReviews: 0,
-    description: 'Sample description',
+    description: 'توضیحات نمونه',
   });
 
   const createdProduct = await product.save();
@@ -85,7 +85,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     res.json(updatedProduct);
   } else {
     res.status(404);
-    throw new Error('Product not found');
+    throw new Error('محصول یافت نشد');
   }
 });
 
@@ -97,10 +97,10 @@ const deleteProduct = asyncHandler(async (req, res) => {
 
   if (product) {
     await Product.deleteOne({ _id: product._id });
-    res.json({ message: 'Product removed' });
+    res.json({ message: 'محصول حذف شد' });
   } else {
     res.status(404);
-    throw new Error('Product not found');
+    throw new Error('محصول یافت نشد');
   }
 });
 
@@ -119,7 +119,7 @@ const createProductReview = asyncHandler(async (req, res) => {
 
     if (alreadyReviewed) {
       res.status(400);
-      throw new Error('Product already reviewed');
+      throw new Error('دیدگاه ثبت شده است');
     }
 
     const review = {
@@ -138,10 +138,10 @@ const createProductReview = asyncHandler(async (req, res) => {
       product.reviews.length;
 
     await product.save();
-    res.status(201).json({ message: 'Review added' });
+    res.status(201).json({ message: 'دیدگاه اضافه شد' });
   } else {
     res.status(404);
-    throw new Error('Product not found');
+    throw new Error('محصول یافت نشد');
   }
 });
 

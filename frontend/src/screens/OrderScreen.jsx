@@ -63,7 +63,7 @@ const OrderScreen = () => {
       try {
         await payOrder({ orderId, details });
         refetch();
-        toast.success('Order is paid');
+        toast.success('سفارش پرداخت شد');
       } catch (err) {
         toast.error(err?.data?.message || err.error);
       }
@@ -159,6 +159,7 @@ const OrderScreen = () => {
                       <Row>
                         <Col md={1}>
                           <Image
+                          width={"100px"}
                             src={item.image}
                             alt={item.name}
                             fluid
@@ -170,8 +171,8 @@ const OrderScreen = () => {
                             {item.name}
                           </Link>
                         </Col>
-                        <Col md={4}>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                        <Col dir='ltr' md={6}>
+                          {item.qty} x {item.price}  = {item.qty * item.price} تومان
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -190,25 +191,25 @@ const OrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>موارد</Col>
-                  <Col>${order.itemsPrice}</Col>
+                  <Col>{order.itemsPrice} تومان</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>ارسال</Col>
-                  <Col>${order.shippingPrice}</Col>
+                  <Col>{order.shippingPrice} تومان</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>مالیات</Col>
-                  <Col>${order.taxPrice}</Col>
+                  <Col>{order.taxPrice} تومان</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>مجموع</Col>
-                  <Col>${order.totalPrice}</Col>
+                  <Col>{order.totalPrice} تومان</Col>
                 </Row>
               </ListGroup.Item>
               {!order.isPaid && (

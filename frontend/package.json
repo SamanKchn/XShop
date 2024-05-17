@@ -21,7 +21,10 @@
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "react-modern-calendar-datepicker": "^3.1.6",
+        "react-advance-jalaali-datepicker": "^1.4.0",
+    "react-apexcharts": "^1.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -28,7 +28,7 @@ const UserListScreen = () => {
 
   return (
     <>
-      <h1>Users</h1>
+      <h1>کاربران</h1>
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -39,10 +39,10 @@ const UserListScreen = () => {
         <Table striped bordered hover responsive className='table-sm'>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
-              <th>ADMIN</th>
+              <th>شناسه</th>
+              <th>نام</th>
+              <th>ایمیل</th>
+              <th>ادمین</th>
               <th></th>
             </tr>
           </thead>

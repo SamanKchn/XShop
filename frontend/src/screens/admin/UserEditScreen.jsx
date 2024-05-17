@@ -32,7 +32,7 @@ const UserEditScreen = () => {
     e.preventDefault();
     try {
       await updateUser({ userId, name, email, isAdmin });
-      toast.success('user updated successfully');
+      toast.success('حساب کاربری با موفقیت بروزرسانی شد');
       refetch();
       navigate('/admin/userlist');
     } catch (err) {
@@ -51,10 +51,10 @@ const UserEditScreen = () => {
   return (
     <>
       <Link to='/admin/userlist' className='btn btn-light my-3'>
-        Go Back
+        بازگشت
       </Link>
       <FormContainer>
-        <h1>Edit User</h1>
+        <h1>ویرایش کاربر</h1>
         {loadingUpdate && <Loader />}
         {isLoading ? (
           <Loader />
@@ -65,20 +65,20 @@ const UserEditScreen = () => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group className='my-2' controlId='name'>
-              <Form.Label>Name</Form.Label>
+              <Form.Label>نام</Form.Label>
               <Form.Control
                 type='name'
-                placeholder='Enter name'
+                placeholder='نام و نام خانوادگی را وارد کنید'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group className='my-2' controlId='email'>
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>آدرس ایمیل</Form.Label>
               <Form.Control
                 type='email'
-                placeholder='Enter email'
+                placeholder='ایمیل را وارد کنید'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></Form.Control>
@@ -87,14 +87,14 @@ const UserEditScreen = () => {
             <Form.Group className='my-2' controlId='isadmin'>
               <Form.Check
                 type='checkbox'
-                label='Is Admin'
+                label='ادمین میباشد؟'
                 checked={isAdmin}
                 onChange={(e) => setIsAdmin(e.target.checked)}
               ></Form.Check>
             </Form.Group>
 
             <Button type='submit' variant='primary'>
-              Update
+              اعمال
             </Button>
           </Form>
         )}

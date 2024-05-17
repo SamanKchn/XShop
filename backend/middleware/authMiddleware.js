@@ -19,11 +19,11 @@ const protect = asyncHandler(async (req, res, next) => {
     } catch (error) {
       console.error(error);
       res.status(401);
-      throw new Error('Not authorized, token failed');
+      throw new Error('دسترسی نامعتبر است، بدون توکن');
     }
   } else {
     res.status(401);
-    throw new Error('Not authorized, no token');
+    throw new Error('دسترسی نامعتبر است، بدون توکن');
   }
 });
 
@@ -33,7 +33,7 @@ const admin = (req, res, next) => {
     next();
   } else {
     res.status(401);
-    throw new Error('Not authorized as an admin');
+    throw new Error('دسترسی ادمین نامعتبر است');
   }
 };
 

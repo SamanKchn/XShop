@@ -76,6 +76,7 @@ const PlaceOrderScreen = () => {
                       <Row>
                         <Col md={1}>
                           <Image
+                          width={"100px"}
                             src={item.image}
                             alt={item.name}
                             fluid
@@ -87,9 +88,8 @@ const PlaceOrderScreen = () => {
                             {item.name}
                           </Link>
                         </Col>
-                        <Col md={4}>
-                          {item.qty} x ${item.price} = $
-                          {(item.qty * (item.price * 100)) / 100}
+                        <Col dir='ltr' md={6}>
+                          {item.qty} x {item.price} = {(item.qty * (item.price * 100)) / 100} تومان
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -108,25 +108,25 @@ const PlaceOrderScreen = () => {
               <ListGroup.Item>
                 <Row>
                   <Col>موارد</Col>
-                  <Col>${cart.itemsPrice}</Col>
+                  <Col>{cart.itemsPrice} تومان</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>ارسال</Col>
-                  <Col>${cart.shippingPrice}</Col>
+                  <Col>{cart.shippingPrice} تومان</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>مالیات</Col>
-                  <Col>${cart.taxPrice}</Col>
+                  <Col>{cart.taxPrice} تومان</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>مجموع</Col>
-                  <Col>${cart.totalPrice}</Col>
+                  <Col>{cart.totalPrice} تومان</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
@@ -141,7 +141,7 @@ const PlaceOrderScreen = () => {
                   disabled={cart.cartItems === 0}
                   onClick={placeOrderHandler}
                 >
-                  Place Order
+                  ثبت سفارش
                 </Button>
                 {isLoading && <Loader />}
               </ListGroup.Item>

@@ -27,11 +27,11 @@ const SearchBox = () => {
         name='q'
         onChange={(e) => setKeyword(e.target.value)}
         value={keyword}
-        placeholder='جستوجو محصولات'
-        className='mr-sm-2 ml-sm-5'
+        placeholder='جستجو محصولات'
+        className='mr-sm-2 ml-sm-5 mx-lg-3 py-1'
       ></Form.Control>
-      <Button type='submit' variant='outline-success' className='p-2 mx-2'>
-        جستوجو
+      <Button type='submit' variant='outline-secondary' className='p-2 py-1'>
+        جستجو
       </Button>
     </Form>
   );

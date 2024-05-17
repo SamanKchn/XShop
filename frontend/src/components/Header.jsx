@@ -37,19 +37,19 @@ const Header = () => {
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              <img src={logo} alt='X Shop' />
+              <img width={"50px"} src={logo} alt='X Shop' />
               XShop
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
+              <SearchBox className='mx-3' />
             <Nav className='me-auto'>
-              <SearchBox />
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <FaShoppingCart /> سبد خرید
                   {cartItems.length > 0 && (
-                    <Badge pill bg='success' style={{ marginLeft: '5px' }}>
+                    <Badge pill bg='success' style={{ marginLeft: '5px',marginRight: '5px' }}>
                       {cartItems.reduce((a, c) => a + c.qty, 0)}
                     </Badge>
                   )}
@@ -57,12 +57,12 @@ const Header = () => {
               </LinkContainer>
               {userInfo ? (
                 <>
-                  <NavDropdown title={userInfo.name} id='username'>
+                  <NavDropdown title={" " + userInfo.name + " " } id='username'>
                     <LinkContainer to='/profile'>
-                      <NavDropdown.Item>حساب</NavDropdown.Item>
+                      <NavDropdown.Item>   حساب  </NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Item onClick={logoutHandler}>
-                      خروج
+                      خروج 
                     </NavDropdown.Item>
                   </NavDropdown>
                 </>
@@ -76,7 +76,7 @@ const Header = () => {
 
               {/* Admin Links */}
               {userInfo && userInfo.isAdmin && (
-                <NavDropdown title='Admin' id='adminmenu'>
+                <NavDropdown title=' Admin ' id='adminmenu'>
                   <LinkContainer to='/admin/productlist'>
                     <NavDropdown.Item>محصولات</NavDropdown.Item>
                   </LinkContainer>

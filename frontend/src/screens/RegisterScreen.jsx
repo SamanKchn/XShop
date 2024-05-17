@@ -36,7 +36,7 @@ const RegisterScreen = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error('Passwords do not match');
+      toast.error('رمز عبور تطابق ندارد');
     } else {
       try {
         const res = await register({ name, email, password }).unwrap();
@@ -56,7 +56,7 @@ const RegisterScreen = () => {
           <Form.Label>نام و نام خانوادگی</Form.Label>
           <Form.Control
             type='name'
-            placeholder='Enter name'
+            placeholder='نام و نام خانوادگی را وارد کنید'
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></Form.Control>
@@ -66,7 +66,7 @@ const RegisterScreen = () => {
           <Form.Label>آدرس ایمیل</Form.Label>
           <Form.Control
             type='email'
-            placeholder='Enter email'
+            placeholder='ایمیل را وارد کنید'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
@@ -76,7 +76,7 @@ const RegisterScreen = () => {
           <Form.Label>رمز عبور</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Enter password'
+            placeholder='رمز عبور را وارد کنید'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
@@ -85,7 +85,7 @@ const RegisterScreen = () => {
           <Form.Label>تکرار رمز عبور</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Confirm password'
+            placeholder='رمز عبور را دوباره وارد کنید'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>

@@ -21,7 +21,7 @@ const authUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(401);
-    throw new Error('Invalid email or password');
+    throw new Error('ایمیل یا رمز نامعتبر');
   }
 });
 
@@ -35,7 +35,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (userExists) {
     res.status(400);
-    throw new Error('User already exists');
+    throw new Error('کاربر در حال حاضر وجود دارد');
   }
 
   const user = await User.create({
@@ -55,7 +55,7 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error('Invalid user data');
+    throw new Error('اطلاعات نامعتبر');
   }
 });
 
@@ -64,7 +64,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access  Public
 const logoutUser = (req, res) => {
   res.clearCookie('jwt');
-  res.status(200).json({ message: 'Logged out successfully' });
+  res.status(200).json({ message: 'با موفقیت از حساب کاربری خارج شدید' });
 };
 
 // @desc    Get user profile
@@ -82,7 +82,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error('کاربر یافت نشد');
   }
 });
 
@@ -110,7 +110,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error('کاربر یافت نشد');
   }
 });
 
@@ -131,13 +131,13 @@ const deleteUser = asyncHandler(async (req, res) => {
   if (user) {
     if (user.isAdmin) {
       res.status(400);
-      throw new Error('Can not delete admin user');
+      throw new Error('کاربر ادمین حذف نمیشود');
     }
     await User.deleteOne({ _id: user._id });
-    res.json({ message: 'User removed' });
+    res.json({ message: 'کاربر حذف شد' });
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error('کاربر یافت نشد');
   }
 });
 
@@ -151,7 +151,7 @@ const getUserById = asyncHandler(async (req, res) => {
     res.json(user);
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error('کاربر یافت نشد');
   }
 });
 // @desc    Update user
@@ -175,7 +175,7 @@ const updateUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404);
-    throw new Error('User not found');
+    throw new Error('کاربر یافت نشد');
   }
 });
 

@@ -59,7 +59,7 @@ const ProductScreen = () => {
         comment,
       }).unwrap();
       refetch();
-      toast.success('Review created successfully');
+      toast.success('دیدگاه با موفقیت ایجاد شد');
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
@@ -81,7 +81,7 @@ const ProductScreen = () => {
           <Meta title={product.name} description={product.description} />
           <Row>
             <Col md={6}>
-              <Image src={product.image} alt={product.name} fluid />
+              <Image  src={product.image} alt={product.name} fluid />
             </Col>
             <Col md={3}>
               <ListGroup variant='flush'>
@@ -94,8 +94,8 @@ const ProductScreen = () => {
                     text={`${product.numReviews} reviews`}
                   />
                 </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-                <ListGroup.Item>
+                <ListGroup.Item>مبلغ: {product.price} تومان</ListGroup.Item>
+                <ListGroup.Item style={{ textAlign:"justify" }} >
                   توضیحات: {product.description}
                 </ListGroup.Item>
               </ListGroup>
@@ -107,7 +107,7 @@ const ProductScreen = () => {
                     <Row>
                       <Col>مبلغ:</Col>
                       <Col>
-                        <strong>${product.price}</strong>
+                        <strong>{product.price} تومان</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -115,7 +115,7 @@ const ProductScreen = () => {
                     <Row>
                       <Col>وضعیت:</Col>
                       <Col>
-                        {product.countInStock > 0 ? 'In Stock' : 'Out Of Stock'}
+                        {product.countInStock > 0 ? 'موجود' : 'ناموجود'}
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -171,7 +171,7 @@ const ProductScreen = () => {
                     <p>{review.comment}</p>
                   </ListGroup.Item>
                 ))}
-                <ListGroup.Item>
+                <ListGroup.Item className='px-0'>
                   <h2>دیدگاه خود را ثبت کنید</h2>
 
                   {loadingProductReview && <Loader />}
@@ -179,7 +179,7 @@ const ProductScreen = () => {
                   {userInfo ? (
                     <Form onSubmit={submitHandler}>
                       <Form.Group className='my-2' controlId='rating'>
-                        <Form.Label>Rating</Form.Label>
+                        <Form.Label>امتیاز</Form.Label>
                         <Form.Control
                           as='select'
                           required
