@@ -50,7 +50,7 @@ const LoginScreen = () => {
           <Form.Label>آدرس ایمیل</Form.Label>
           <Form.Control
             type='email'
-            placeholder='Enter email'
+            placeholder='ایمیل را وارد کنید'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
@@ -60,7 +60,7 @@ const LoginScreen = () => {
           <Form.Label>رمز عبور</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Enter password'
+            placeholder='رمز عبور را وارد کنید'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>

@@ -27,7 +27,7 @@ const OrderListScreen = () => {
   return (
     <>
       <div style={{ height: '35%' }}>
-        <h1>گزارش گیری</h1>
+        <h1>گزارش</h1>
         <span className='mx-2'>از تاریخ </span>
         <input
           type='date'
