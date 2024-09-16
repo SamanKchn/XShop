@@ -12,8 +12,8 @@ const Meta = ({ title, description, keywords }) => {
 
 Meta.defaultProps = {
   title: 'CandyShop',
-  description: 'ارزان ترین قیمت را با ما تجربه کنید',
-  keywords: 'انواع لوازم الکترونیکی',
+  description: 'با کیفیت ترین و خوشمزه ترین را با ما تجربه کنید.',
+  keywords: 'انواع دسر و شیرینی',
 };
 
 export default Meta;
