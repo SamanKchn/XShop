@@ -50,7 +50,7 @@ const PlaceOrderScreen = () => {
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>ارسال</h2>
+              <h2>حمل و نقل</h2>
               <p>
                 <strong>آدرس:</strong>
                 {cart.shippingAddress.address}, {cart.shippingAddress.city}{' '}
@@ -60,15 +60,17 @@ const PlaceOrderScreen = () => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>نحوه پرداخت</h2>
+              <h2>روش پرداخت</h2>
               <strong>روش: </strong>
-              {cart.paymentMethod}
+              {/* {cart.paymentMethod} */}
+              واریز به کارت{' '}
+
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>موارد سفارش</h2>
+              <h2>سفارشات</h2>
               {cart.cartItems.length === 0 ? (
-                <Message>سبد شما خالی است</Message>
+                <Message>سبد خرید خالی است</Message>
               ) : (
                 <ListGroup variant='flush'>
                   {cart.cartItems.map((item, index) => (

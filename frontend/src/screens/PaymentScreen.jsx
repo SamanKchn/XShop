@@ -30,7 +30,7 @@ const PaymentScreen = () => {
   return (
     <FormContainer>
       <CheckoutSteps step1 step2 step3 />
-      <h1>نحوه پرداخت</h1>
+      <h1>روش پرداخت</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group>
           <Form.Label as='legend'>انتخاب روش</Form.Label>
@@ -38,13 +38,15 @@ const PaymentScreen = () => {
             <Form.Check
               className='my-2'
               type='radio'
-              label='کارت بانکی یا PayPal'
+              label='واریز به کارت'
               id='PayPal'
               name='paymentMethod'
-              value='PayPal'
+              value='آیدی پی'
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
+              <p>لطفا مبلغ سفارش را به شمارت کارت 6362141807384335 واریز و اسکرین پرداخت را آپلود نمایید</p>
+
           </Col>
         </Form.Group>
 

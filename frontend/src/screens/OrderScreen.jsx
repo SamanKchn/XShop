@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
@@ -12,6 +12,7 @@ import {
   useGetPaypalClientIdQuery,
   usePayOrderMutation,
 } from '../slices/ordersApiSlice';
+import { ORDERS_URL } from '../constants';
 
 const OrderScreen = () => {
   const { id: orderId } = useParams();
@@ -101,6 +102,39 @@ const OrderScreen = () => {
     refetch();
   };
 
+  const [image, setImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result); // This is the Base64 string
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (image) {
+      try {
+        const response = await fetch(ORDERS_URL + '/' + orderId + '/image', {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ image }),
+        });
+        const data = await response.json();
+        console.log(data);
+        refetch();
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
+    }
+  };
+
   return isLoading ? (
     <Loader />
   ) : error ? (
@@ -128,30 +162,55 @@ const OrderScreen = () => {
               </p>
               {order.isDelivered ? (
                 <Message variant='success'>
-                  ارسال شده در {order.deliveredAt}
+                  تحویل داده شده {order.deliveredAt}
                 </Message>
               ) : (
-                <Message variant='danger'>ارسال نشد</Message>
+                <Message variant='danger'>ارسال نشده</Message>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>نحوه پرداخت</h2>
+              <h2>روش پرداخت</h2>
               <p>
                 <strong>روش: </strong>
-                {order.paymentMethod}
+                {/* {order.paymentMethod} */}
+                واریز به کارت
               </p>
               {order.isPaid ? (
-                <Message variant='success'>پرداخت در {order.paidAt}</Message>
+                <Message variant='success'>پرداخت شده {order.paidAt}</Message>
               ) : (
-                <Message variant='danger'>پرداخت نشده</Message>
+                <>
+                  <form onSubmit={handleSubmit}>
+                    <label
+                      htmlFor='file-upload'
+                      style={{ display: 'block', marginBottom: '10px' }}
+                    >
+                      بارگذاری اسکرین پرداخت
+                    </label>
+                    <input
+                      id='file-upload'
+                      type='file'
+                      accept='image/*'
+                      onChange={handleImageChange}
+                    />
+                    {order.screenShot && (
+                      <img alt='' src={order.screenShot}></img>
+                    )}
+                    <br />
+                    <Button type='submit' style={{ marginTop: '10px' }}>
+                      بارگذاری تصویر
+                    </Button>
+                  </form>
+                  <br />
+                  <Message variant='danger'>تایید نشده</Message>
+                </>
               )}
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>موارد سفارش</h2>
+              <h2>سفارشات</h2>
               {order.orderItems.length === 0 ? (
-                <Message>سفارش خالی میباشد</Message>
+                <Message>سفارشات خالی است</Message>
               ) : (
                 <ListGroup variant='flush'>
                   {order.orderItems.map((item, index) => (
@@ -159,7 +218,7 @@ const OrderScreen = () => {
                       <Row>
                         <Col md={1}>
                           <Image
-                          width={"100px"}
+                            width={'100px'}
                             src={item.image}
                             alt={item.name}
                             fluid
@@ -172,7 +231,8 @@ const OrderScreen = () => {
                           </Link>
                         </Col>
                         <Col dir='ltr' md={6}>
-                          {item.qty} x {item.price}  = {item.qty * item.price} تومان
+                          {item.qty} x {item.price} = {item.qty * item.price}{' '}
+                          تومان
                         </Col>
                       </Row>
                     </ListGroup.Item>
