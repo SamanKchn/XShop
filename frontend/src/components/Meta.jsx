@@ -11,9 +11,9 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: 'XShop',
-  description: 'ارزان ترین قیمت را با ما تجربه کنید',
-  keywords: 'انواع لوازم الکترونیکی',
+  title: 'GameShop',
+  description: 'بروز ترین را با ما تجربه کنید',
+  keywords: 'انواع بازی های ویدیویی',
 };
 
 export default Meta;

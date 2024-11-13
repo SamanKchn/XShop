@@ -1,14 +1,14 @@
-# XShop eCommerce Platform
+# GameShop eCommerce Platform
 
 > eCommerce platform built with the MERN stack & Redux.
 
 This project is part of my [MERN Stack From Scratch | eCommerce Platform](https://www.traversymedia.com/mern-stack-from-scratch) course. It is a full-featured shopping cart with PayPal & credit/debit payments.
 
-This is version 2.0 of the app, which uses Redux Toolkit. The first version can be found [here](https://XShopdemo.dev)
+This is version 2.0 of the app, which uses Redux Toolkit. The first version can be found [here](https://GameShopdemo.dev)
 
 <!-- toc -->
 
-- [XShop eCommerce Platform](#xshop-ecommerce-platform)
+- [GameShop eCommerce Platform](#GameShop-ecommerce-platform)
   - [Features](#features)
   - [Usage](#usage)
     - [Env Variables](#env-variables)
@@ -131,7 +131,7 @@ jane@email.com (Customer)
 # Bug Fixes, corrections and code FAQ
 
 The code here in the main branch has been updated since the course was published to fix bugs found by students of the course and answer common questions, if you are looking to compare your code to that from the course lessons then
-please refer to the [originalcoursecode](https://github.com/bradtraversy/XShop/tree/originalCourseCode) branch of this repository.
+please refer to the [originalcoursecode](https://github.com/bradtraversy/GameShop/tree/originalCourseCode) branch of this repository.
 
 There are detailed notes in the comments that will hopefully help you understand
 and adopt the changes and corrections.
@@ -148,7 +148,7 @@ and
 
 `warning: Received 'true' for a non-boolean attribute table.`
 
-> Code changes can be seen in [ProfileScreen.jsx](https://github.com/bradtraversy/XShop/tree/main/frontend/src/screens/ProfileScreen.jsx)
+> Code changes can be seen in [ProfileScreen.jsx](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/screens/ProfileScreen.jsx)
 
 ### BUG: Changing an uncontrolled input to be controlled
 
@@ -158,7 +158,7 @@ uncontrolled input initially i.e. not bound to state.
 In the case of `urlKeyword` being **undefined** we can set state to an empty
 string.
 
-> Code changes can be seen in [SearchBox.jsx](https://github.com/bradtraversy/XShop/tree/main/frontend/src/components/SearchBox.jsx)
+> Code changes can be seen in [SearchBox.jsx](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/components/SearchBox.jsx)
 
 ### BUG: All file types are allowed when updating product images
 
@@ -168,7 +168,7 @@ You may see that our `checkFileType` function is declared but never actually
 used, this change fixes that. The function has been renamed to `fileFilter` and
 passed to the instance of [ multer ](https://github.com/expressjs/multer#filefilter)
 
-> Code changes can be seen in [uploadRoutes.js](https://github.com/bradtraversy/XShop/tree/main/backend/routes/uploadRoutes.js)
+> Code changes can be seen in [uploadRoutes.js](https://github.com/bradtraversy/GameShop/tree/main/backend/routes/uploadRoutes.js)
 
 ### BUG: Throwing error from productControllers will not give a custom error response
 
@@ -200,7 +200,7 @@ and drop it in to any route handler that needs it.
 This also removes the need to check for a cast error in our errorMiddleware and
 is a little more explicit in checking for such an error.
 
-> Changes can be seen in [errorMiddleware.js](https://github.com/bradtraversy/XShop/tree/main/backend/middleware/errorMiddleware.js), [productRoutes.js](https://github.com/bradtraversy/XShop/tree/main/backend/routes/productRoutes.js), [productController.js](https://github.com/bradtraversy/XShop/tree/main/backend/controllers/productController.js) and [checkObjectId.js](https://github.com/bradtraversy/XShop/tree/main/backend/middleware/checkObjectId.js)
+> Changes can be seen in [errorMiddleware.js](https://github.com/bradtraversy/GameShop/tree/main/backend/middleware/errorMiddleware.js), [productRoutes.js](https://github.com/bradtraversy/GameShop/tree/main/backend/routes/productRoutes.js), [productController.js](https://github.com/bradtraversy/GameShop/tree/main/backend/controllers/productController.js) and [checkObjectId.js](https://github.com/bradtraversy/GameShop/tree/main/backend/middleware/checkObjectId.js)
 
 ### BUG: Bad responses not handled in the frontend
 
@@ -232,10 +232,10 @@ The same is true for [handling errors from our RTK queries.](https://redux-toolk
 
 > Changes can be seen in:-
 >
-> - [PlaceOrderScreen.jsx](https://github.com/bradtraversy/XShop/tree/main/frontend/src/screens/PlaceOrderScreen.jsx)
-> - [OrderScreen.jsx](https://github.com/bradtraversy/XShop/tree/main/frontend/src/screens/OrderScreen.jsx)
-> - [ProductEditScreen.jsx](https://github.com/bradtraversy/XShop/tree/main/frontend/src/screens/admin/ProductEditScreen.jsx)
-> - [ProductListScreen.jsx](https://github.com/bradtraversy/XShop/tree/main/frontend/src/screens/admin/ProductListScreen.jsx)
+> - [PlaceOrderScreen.jsx](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/screens/PlaceOrderScreen.jsx)
+> - [OrderScreen.jsx](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/screens/OrderScreen.jsx)
+> - [ProductEditScreen.jsx](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/screens/admin/ProductEditScreen.jsx)
+> - [ProductListScreen.jsx](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/screens/admin/ProductListScreen.jsx)
 
 ### BUG: After switching users, our new user gets the previous users cart
 
@@ -249,9 +249,9 @@ The solution is to simply clear local storage entirely and so remove the
 
 > Changes can be seen in:-
 >
-> - [authSlice.js](https://github.com/bradtraversy/XShop/tree/main/frontend/src/slices/authSlice.js)
-> - [cartSlice.js](https://github.com/bradtraversy/XShop/tree/main/frontend/src/slices/cartSlice.js)
-> - [Header.jsx](https://github.com/bradtraversy/XShop/tree/main/frontend/src/components/Header.jsx)
+> - [authSlice.js](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/slices/authSlice.js)
+> - [cartSlice.js](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/slices/cartSlice.js)
+> - [Header.jsx](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/components/Header.jsx)
 
 ### BUG: Passing a string value to our `addDecimals` function
 
@@ -263,8 +263,8 @@ be improved.
 
 > Changes can be seen in:
 >
-> - [cartUtils.js](https://github.com/bradtraversy/XShop/tree/main/frontend/src/utils/cartUtils.js)
-> - [calcPrices.js](https://github.com/bradtraversy/XShop/tree/main/backend/utils/calcPrices.js)
+> - [cartUtils.js](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/utils/cartUtils.js)
+> - [calcPrices.js](https://github.com/bradtraversy/GameShop/tree/main/backend/utils/calcPrices.js)
 
 ### BUG: Token and Cookie expiration not handled in frontend
 
@@ -276,7 +276,7 @@ The solution is to wrap/customize the RTK [baseQuery](https://redux-toolkit.js.o
 
 > Changes can be seein in:
 >
-> - [apiSlice.js](https://github.com/bradtraversy/XShop/tree/main/frontend/src/slices/apiSlice.js)
+> - [apiSlice.js](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/slices/apiSlice.js)
 
 Additionally we can remove the following code:
 
@@ -285,7 +285,7 @@ const expirationTime = new Date().getTime() + 30 * 24 * 60 * 60 * 1000; // 30 da
 localStorage.setItem('expirationTime', expirationTime);
 ```
 
-from our [authSlice.js](https://github.com/bradtraversy/XShop/tree/main/frontend/src/slices/authSlice.js) as it's never
+from our [authSlice.js](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/slices/authSlice.js) as it's never
 actually used in the project in any way.
 
 ### BUG: Calculation of prices as decimals gives odd results
@@ -312,9 +312,9 @@ The solution would be to calculate prices in whole numbers:
 
 > Changes can be seein in:
 >
-> - [PlaceOrderScreen.jsx](https://github.com/bradtraversy/XShop/tree/main/frontend/src/screens/PlaceOrderScreen.jsx)
-> - [cartUtils.js](https://github.com/bradtraversy/XShop/tree/main/frontend/src/utils/cartUtils.js)
-> - [calcPrices.js](https://github.com/bradtraversy/XShop/tree/main/backend/utils/calcPrices.js)
+> - [PlaceOrderScreen.jsx](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/screens/PlaceOrderScreen.jsx)
+> - [cartUtils.js](https://github.com/bradtraversy/GameShop/tree/main/frontend/src/utils/cartUtils.js)
+> - [calcPrices.js](https://github.com/bradtraversy/GameShop/tree/main/backend/utils/calcPrices.js)
 
 ### FAQ: How do I use Vite instead of CRA?
 
@@ -418,7 +418,7 @@ module.exports = {
 Create React App by default outputs the build to a **/build** directory and this is
 what we serve from our backend in production.  
 Vite by default outputs the build to a **/dist** directory so we need to make
-some adjustments to our [backend/server.js](https://github.com/bradtraversy/XShop/tree/main/backend/server.js)
+some adjustments to our [backend/server.js](https://github.com/bradtraversy/GameShop/tree/main/backend/server.js)
 Change...
 
 ```js
